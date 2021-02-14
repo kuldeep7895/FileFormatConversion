@@ -1,0 +1,9 @@
+Name	Age	Income
+Kuldeep Meena	19	1000
+Sandeep 	16	0
+Seetaram & Saphedi	42	1000000
+Kuldeep,Sandeep,Family 	Null	100000000
+"Masters, Alicia Reis",Black Panther / T'chal,5
+
+M^a$s.t|e?r*s\, A+l-icia Reis,Bla[c\k Pan\\,ther / T'chal,5
+

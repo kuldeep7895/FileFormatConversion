@@ -96,8 +96,12 @@ fun convertNewlines(infilename, newline1, outfilename, newline2) =
 		end
 	end;
 
-fun unix2dos(infilename, outfilename) = fun convertNewlines(infilename, #"\n", outfilename, #"\r\n");
+(*fun unix2dos(infilename, outfilename) = fun convertNewlines(infilename, #"\n", outfilename, #"\n");*)
 
+
+fun next_char input =
+(*	    Option.valOf (TextIO.scanStream (Char.scan StringCvt.DEC) input)*)
+	Option.valOf (TextIO.input1 input)
 
 
 

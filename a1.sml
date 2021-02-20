@@ -5,6 +5,7 @@ fun next_char input =
 fun convertDelimiters(infilename, delim1, outfilename, delim2) = 
 	let
 		val ins = TextIO.openIn infilename
+		val os = TextIO.openAppend  outfilename;
 	in
 		let
 			fun iterFile(ins) = 
@@ -30,7 +31,8 @@ fun convertDelimiters(infilename, delim1, outfilename, delim2) =
 				end
 			
 		in
-			iterFile(ins)
+(*			iterFile(ins)*)
+			TextIO.output (os,iterFile(ins)) 
 		end
 	end;
 	
@@ -38,4 +40,12 @@ fun convertDelimiters(infilename, delim1, outfilename, delim2) =
 fun csv2tsv(infilename, outfilename) = convertDelimiters(infilename,#",",outfilename,#"\t");
 
 fun tsv2csv(incilename, outfilename) = convertDelimiters(incilename,#"\t",outfilename,#",");
+
+convertDelimiters("TestCases/himym.csv",#",", "out.txt", #"&"); 
+
+
+(*fun convertNewlines(infilename, newline1, outfilename, newline2) = *)
+(*	let*)
+(*	in*)
+(*	end;*)
 

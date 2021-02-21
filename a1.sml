@@ -54,7 +54,6 @@ fun convertDelimiters(infilename, delim1, outfilename, delim2) =
 							if(nextChar = delim1) then
 								concat ["\""^str(delim2),iterFile(ins,0,false)]
 							else
-								
 								if(nextChar = #"\n") then
 									concat["\""^("\n"),iterFile(ins,0,false)]
 								else if(nextChar = #"\r") then
@@ -68,22 +67,6 @@ fun convertDelimiters(infilename, delim1, outfilename, delim2) =
 									end
 								else
 									concat [str(nextChar),iterFile(ins,numFieldChar+1,false)]
-								
-(*						else*)
-(*					if(nextChar = #"\"") then *)
-(*						if(TextIO.endOfStream ins) then "\\"*)
-(*						else*)
-(*							let*)
-(*								val nextNextChar = next_char ins;*)
-(*							in*)
-(*								if(nextNextChar = delim1) then concat [str(delim1),iterFile(ins)]*)
-(*								else if(nextNextChar = delim2) then concat ["\\\\"^str(delim2),iterFile(ins)]*)
-(*								else concat ["\\"^str(nextNextChar),iterFile(ins)]*)
-(*							end*)
-(*					else*)
-(*						if(nextChar = delim1) then concat [str(delim2),iterFile(ins)]*)
-(*						else if(nextChar = delim2) then concat ["\\"^str(delim2),iterFile(ins)]*)
-(*						else concat [str(nextChar),iterFile(ins)]*)
 				end
 		in
 (*			iterFile(ins)*)
@@ -96,7 +79,7 @@ fun csv2tsv(infilename, outfilename) = convertDelimiters(infilename,#",",outfile
 
 fun tsv2csv(incilename, outfilename) = convertDelimiters(incilename,#"\t",outfilename,#",");
 
-(*convertDelimiters("TestCases/himym.csv",#",", "out.txt", #"&"); *)
+convertDelimiters("TestCases/himym.csv",#",", "out.txt", #"&");
 
 
 (*fun convertNewlines(infilename, newline1, outfilename, newline2) = *)
